@@ -34,6 +34,7 @@ def interest_paid_variable
     end
     break if value != 0.0
   end
+  interest_paid_font = FunkyFont.new(@logic.interest_paid)
 end
 
 
