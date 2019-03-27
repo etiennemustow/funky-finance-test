@@ -10,11 +10,11 @@ class Logic
 
   def calculate
     if @interest_paid == nil
-      @interest_paid = @interest_rate.to_f * @amount_borrowed.to_f * @years
+      @interest_paid = @interest_rate.to_f * @amount_borrowed.to_f * @years.to_f
     elsif @interest_rate == nil
-      @interest_rate = @interest_paid.to_f / (@amount_borrowed.to_f * @years)
+      @interest_rate = @interest_paid.to_f / (@amount_borrowed.to_f * @years.to_f)
     elsif @amount_borrowed == nil
-      @amount_borrowed = @interest_paid.to_f / (@interest_rate.to_f * @years)
+      @amount_borrowed = @interest_paid.to_f / (@interest_rate.to_f * @years.to_f)
     elsif @years == nil
       @years = @interest_paid.to_f / (@interest_rate.to_f * @amount_borrowed.to_f)
     end
