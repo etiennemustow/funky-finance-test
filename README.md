@@ -23,6 +23,6 @@ $ ruby ./lib/funky-finance.rb
 
 ### Notes
 
-Although not specified in the test, I'd have loved to edit some of the methods to disallow the same variable being entered twice
-(as it's a potential bug)
+Although not specified in the test and the program works, I'd have loved to edit some of the methods to disallow the same variable being entered twice (as it's a potential bug).
+I'd have also liked to refactor some of my code as some of the methods seem repetitive.
 I'd also have tried to make the program look a little nicer, UI-wise
