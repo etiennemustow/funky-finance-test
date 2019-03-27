@@ -151,7 +151,8 @@ def interest_rate_variable
 end
 
 def display_final_value
-  funky_font = FunkyFont.new(@logic.calculate.round(2))
+  final_variable = sprintf('%.2f', @logic.calculate.round(2))
+  funky_font = FunkyFont.new(final_variable)
   puts @variables[0] + ":"
   funky_font.create
 end
