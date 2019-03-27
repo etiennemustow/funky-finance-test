@@ -157,20 +157,38 @@ def display_final_value
   funky_font.create
 end
 
+def continue_or_quit
+  loop do
+    puts "Continue or Quit?"
+    selection = STDIN.gets.chomp
+    if selection == "q"
+      exit
+    elsif selection == "c"
+      funky_finance
+    else
+      puts "Invalid option: type 'c' or 'q' to continue or quit, respectively."
+    end
+  end
+end
 
  def funky_finance
-   @variables = ["Interest Paid (£)", "Interest Rate", "Amount Borrowed (£)", "Years"]
-   @logic = Logic.new
-   puts "Welcome to Funky Finance!"
-   puts "Please, enter a valid variable. You can select from: 'i', 'r', 'p' and 't'. They correspond to 'Interest Paid (£)', 'Interest Rate', 'Amount Borrowed (£)' and 'Years', respectively."
-   puts "What will the first variable be?"
-   which_first_variable
-   puts "What will the second variable be?"
-   which_second_variable
-   puts "What will the third variable be?"
-   which_third_variable
-   binding.pry
-   display_final_value
+     @variables = ["Interest Paid (£)", "Interest Rate", "Amount Borrowed (£)", "Years"]
+     @logic = Logic.new
+     puts "Welcome to Funky Finance!"
+     puts "Please, enter a valid variable. You can select from: 'i', 'r', 'p' and 't'. They correspond to 'Interest Paid (£)', 'Interest Rate', 'Amount Borrowed (£)' and 'Years', respectively."
+     puts "What will the first variable be?"
+     which_first_variable
+     puts "What will the second variable be?"
+     which_second_variable
+     puts "What will the third variable be?"
+     which_third_variable
+     binding.pry
+     display_final_value
  end
 
- funky_finance
+ def run_program
+   funky_finance
+   continue_or_quit
+ end
+
+ run_program
