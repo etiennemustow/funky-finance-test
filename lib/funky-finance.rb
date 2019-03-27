@@ -3,75 +3,99 @@ require_relative 'funky_font'
 require 'pry'
 
 def which_first_variable
+  @valid_selection = false
+  loop do
     selection = STDIN.gets.chomp
     case selection
       when "i"
         puts "What is the value of the first variable?"
         interest_paid_variable
+        @valid_selection = true
         # @variables - ["i"]
       when "r"
         puts "What is the value of the first variable?"
         interest_rate_variable
+        @valid_selection = true
         # @variables - ["r"]
       when "p"
         puts "What is the value of the first variable?"
         amount_borrowed_variable
+        @valid_selection = true
         # @variables - ["p"]
       when "t"
         puts "What is the value of the first variable?"
         years_variable
+        @valid_selection = true
         # @variables - ["t"]
       else
           puts "Please, enter a valid variable. You can select from: 'i', 'r', 'p' and 't'."
-     end
+      end
+    break if @valid_selection == true
+   end
 end
 
 def which_second_variable
+  @valid_selection = false
     selection = STDIN.gets.chomp
-    case selection
-      when "i"
-        puts "What is the value of the second variable?"
-        interest_paid_variable
-        # @variables - ["i"]
-      when "r"
-        puts "What is the value of the second variable?"
-        interest_rate_variable
-        # @variables - ["r"]
-      when "p"
-        puts "What is the value of the second variable?"
-        amount_borrowed_variable
-        # @variables - ["p"]
-      when "t"
-        puts "What is the value of the second variable?"
-        years_variable
-        # @variables - ["t"]
-      else
-        puts "Please, enter a valid variable. You can select from: 'i', 'r', 'p' and 't'."
-     end
+    loop do
+      case selection
+        when "i"
+          puts "What is the value of the second variable?"
+          interest_paid_variable
+          @valid_selection = true
+          # @variables - ["i"]
+        when "r"
+          puts "What is the value of the second variable?"
+          interest_rate_variable
+          @valid_selection = true
+          # @variables - ["r"]
+        when "p"
+          puts "What is the value of the second variable?"
+          amount_borrowed_variable
+          @valid_selection = true
+          # @variables - ["p"]
+        when "t"
+          puts "What is the value of the second variable?"
+          years_variable
+          @valid_selection = true
+          # @variables - ["t"]
+        else
+          puts "Please, enter a valid variable. You can select from: 'i', 'r', 'p' and 't'."
+        end
+      break if @valid_selection == true
+   end
 end
 
 def which_third_variable
+  @valid_selection = false
+  loop do
     selection = STDIN.gets.chomp
     case selection
       when "i"
         puts "What is the value of the third variable?"
         interest_paid_variable
+        @valid_selection = true
         # @variables - ["i"]
       when "r"
         puts "What is the value of the third variable?"
         interest_rate_variable
+        @valid_selection = true
         # @variables - ["r"]
       when "p"
         puts "What is the value of the third variable?"
         amount_borrowed_variable
+        @valid_selection = true
         # @variables - ["p"]
       when "t"
         puts "What is the value of the third variable?"
         years_variable
+        @valid_selection = true
         # @variables - ["t"]
       else
         puts "Please, enter a valid variable. You can select from: 'i', 'r', 'p' and 't'."
      end
+    break if @valid_selection == true
+  end
 end
 
 def interest_paid_variable
@@ -84,7 +108,7 @@ def interest_paid_variable
     end
     break if value != 0.0
   end
-  puts @logic.interest_paid
+  puts "Interest Paid: " + @logic.interest_paid.to_s
 end
 
 def amount_borrowed_variable
@@ -97,7 +121,7 @@ def amount_borrowed_variable
     end
     break if value != 0.0
   end
-  puts @logic.amount_borrowed
+  puts "Amount Borrowed (£): " + @logic.amount_borrowed.to_s
 end
 
 def years_variable
@@ -110,7 +134,7 @@ def years_variable
     end
     break if value != 0.0
   end
-  puts @logic.years
+  puts "Years: " + @logic.years.to_s
 end
 
 def interest_rate_variable
@@ -123,18 +147,19 @@ def interest_rate_variable
     end
     break if value != 0.0
   end
-  puts @logic.interest_rate
+  puts "Interest rate: " + @logic.interest_rate.to_s
 end
 
 def display_final_value
-  funky_font = FunkyFont.new(@logic.calculate)
+  funky_font = FunkyFont.new(@logic.calculate.round(2))
+  puts "The value of the last variable is: "
   funky_font.create
 end
 
 
  def funky_finance
-   loop do
    puts "Welcome to Funky Finance!"
+   puts "Please, enter a valid variable. You can select from: 'i', 'r', 'p' and 't'. They correspond to 'interest paid', 'interest rate', 'amount borrowed' and 'years', respectively."
    puts "What will the first variable be?"
    which_first_variable
    puts "What will the second variable be?"
