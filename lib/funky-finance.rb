@@ -11,22 +11,22 @@ def which_first_variable
         puts "What is the value of the first variable?"
         interest_paid_variable
         @valid_selection = true
-        # @variables - ["i"]
+        @variables -= ["Interest Paid (£)"]
       when "r"
         puts "What is the value of the first variable?"
         interest_rate_variable
         @valid_selection = true
-        # @variables - ["r"]
+        @variables -= ["Interest Rate"]
       when "p"
         puts "What is the value of the first variable?"
         amount_borrowed_variable
         @valid_selection = true
-        # @variables - ["p"]
+        @variables -= ["Amount Borrowed (£)"]
       when "t"
         puts "What is the value of the first variable?"
         years_variable
         @valid_selection = true
-        # @variables - ["t"]
+        @variables -= ["Years"]
       else
           puts "Please, enter a valid variable. You can select from: 'i', 'r', 'p' and 't'."
       end
@@ -43,22 +43,22 @@ def which_second_variable
           puts "What is the value of the second variable?"
           interest_paid_variable
           @valid_selection = true
-          # @variables - ["i"]
+          @variables -= ["Interest Paid (£)"]
         when "r"
           puts "What is the value of the second variable?"
           interest_rate_variable
           @valid_selection = true
-          # @variables - ["r"]
+          @variables -= ["Interest Rate"]
         when "p"
           puts "What is the value of the second variable?"
           amount_borrowed_variable
           @valid_selection = true
-          # @variables - ["p"]
+          @variables -= ["Amount Borrowed (£)"]
         when "t"
           puts "What is the value of the second variable?"
           years_variable
           @valid_selection = true
-          # @variables - ["t"]
+          @variables -= ["Years"]
         else
           puts "Please, enter a valid variable. You can select from: 'i', 'r', 'p' and 't'."
         end
@@ -75,22 +75,22 @@ def which_third_variable
         puts "What is the value of the third variable?"
         interest_paid_variable
         @valid_selection = true
-        # @variables - ["i"]
+        @variables -= ["Interest Paid (£)"]
       when "r"
         puts "What is the value of the third variable?"
         interest_rate_variable
         @valid_selection = true
-        # @variables - ["r"]
+        @variables -= ["Interest Rate"]
       when "p"
         puts "What is the value of the third variable?"
         amount_borrowed_variable
         @valid_selection = true
-        # @variables - ["p"]
+        @variables -= ["Amount Borrowed (£)"]
       when "t"
         puts "What is the value of the third variable?"
         years_variable
         @valid_selection = true
-        # @variables - ["t"]
+        @variables -= ["Years"]
       else
         puts "Please, enter a valid variable. You can select from: 'i', 'r', 'p' and 't'."
      end
@@ -108,7 +108,7 @@ def interest_paid_variable
     end
     break if value != 0.0
   end
-  puts "Interest Paid: " + @logic.interest_paid.to_s
+  puts "Interest Paid (£): " + @logic.interest_paid.to_s
 end
 
 def amount_borrowed_variable
@@ -152,23 +152,24 @@ end
 
 def display_final_value
   funky_font = FunkyFont.new(@logic.calculate.round(2))
-  puts "The value of the last variable is: "
+  puts @variables[0] + ":"
   funky_font.create
 end
 
 
  def funky_finance
+   @variables = ["Interest Paid (£)", "Interest Rate", "Amount Borrowed (£)", "Years"]
+   @logic = Logic.new
    puts "Welcome to Funky Finance!"
-   puts "Please, enter a valid variable. You can select from: 'i', 'r', 'p' and 't'. They correspond to 'interest paid', 'interest rate', 'amount borrowed' and 'years', respectively."
+   puts "Please, enter a valid variable. You can select from: 'i', 'r', 'p' and 't'. They correspond to 'Interest Paid (£)', 'Interest Rate', 'Amount Borrowed (£)' and 'Years', respectively."
    puts "What will the first variable be?"
    which_first_variable
    puts "What will the second variable be?"
    which_second_variable
    puts "What will the third variable be?"
    which_third_variable
+   binding.pry
    display_final_value
  end
 
- # @variables = ["i", "r", "p", "t"]
- @logic = Logic.new
  funky_finance
