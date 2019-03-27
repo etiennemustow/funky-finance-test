@@ -6,16 +6,15 @@ My attempt of the Funky Finance challenge
 
 * Git clone this repository 
 ```
-Clone the repository
 $ git clone https://github.com/etiennemustow/funky-finance-test.git
 ```
 * Change into the directory
 ```
-cd funky-finance-test
+$ cd funky-finance-test
 ```
 * Run the program
 ```
-ruby ./lib/funky-finance.rb
+$ ruby ./lib/funky-finance.rb
 ```
 
 ## Running Tests
